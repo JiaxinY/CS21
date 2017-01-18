@@ -39,6 +39,13 @@ int main() {
             return -1;
         }
     }
+  
+    // Test for inserting item that are alreasy in the tree
+	bool pr = b.insert(4);
+	if( pr ) {
+	    cout << "Incorrect bool return value when inserting 4 " << endl;
+	    return -1;
+	}
 
 
     /* Test size. */
@@ -57,6 +64,11 @@ int main() {
         }
     }
 
+    // Test the items that are not in the tree
+    if(b.find(2)){
+	    cout << "Incorrect return value when finding 2 " << endl;
+	    return -1;
+    }
 
     /* UNCOMMENT THE LINES BELOW TO TEST THE TEMPLATE-BASED ITERATOR */
 
