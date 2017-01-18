@@ -31,6 +31,13 @@ tree.
 Q4:
 First, I looked at the description comment for each function and find out what
 is the purpose of these functions.
-Then, I looked at the tester cases and see if all cases are  
+Then, I looked at the tester cases and see if all cases are being tested, which
+I found that the tester does not test two cases: insert existed item for insert
+function and find not existed item for find function.
+After adding those two cases in tester, I compile and run the tester again and
+the result shows the code has a bug in insert function, which does not return
+false if an item already existed in the tree.
+
+
 
 

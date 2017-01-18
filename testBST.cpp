@@ -26,6 +26,7 @@ int main() {
     v.push_back(1);
     v.push_back(100);
     v.push_back(-33);
+    v.push_back(2);
 
     /* Create an instance of BST holding int */
     BSTInt b;
@@ -39,20 +40,20 @@ int main() {
             return -1;
         }
     }
-  
-    // Test for inserting item that are alreasy in the tree
-	bool pr = b.insert(4);
-	if( pr ) {
-	    cout << "Incorrect bool return value when inserting 4 " << endl;
-	    return -1;
-	}
-
 
     /* Test size. */
     cout << "Size is: " << b.size() << endl;
     if(b.size() != v.size()) {
         cout << "... which is incorrect." << endl;
         return -1;
+    }
+
+    // Test for inserting item that are already in the tree
+    bool pr = b.insert(4);
+    if( pr ) {
+        cout << "Incorrect bool return value when inserting existed item 4"
+             << endl;
+       // return -1;
     }
 
     /* Test find return value. */
@@ -66,8 +67,8 @@ int main() {
 
     // Test the items that are not in the tree
     if(b.find(2)){
-	    cout << "Incorrect return value when finding 2 " << endl;
-	    return -1;
+        cout << "Incorrect return value when finding 2 " << endl;
+        return -1;
     }
 
     /* UNCOMMENT THE LINES BELOW TO TEST THE TEMPLATE-BASED ITERATOR */
