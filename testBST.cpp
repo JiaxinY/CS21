@@ -13,7 +13,7 @@ using namespace std;
 /**
  * A test driver for the BST int class and class template.
  * PA1 CSE 100 2016
- * Author: Christine Alvarado and YOU
+ * Author: Christine Alvarado and Jiaxin Yang
  * TODO: Add more tests
  */
 int main() {
@@ -28,8 +28,16 @@ int main() {
     v.push_back(-33);
     v.push_back(2);
 
+    /* Test for height */
+
     /* Create an instance of BST holding int */
     BSTInt b;
+
+    // Test empty function before insertion
+    if(!b.empty()) {
+        cout << "Incorrect, the tree should be empty " << endl;
+        return -1;
+    }
 
     // Could use: for(auto item : v) { instead of the line below
     for(int item : v) {
@@ -39,6 +47,12 @@ int main() {
                  << endl;
             return -1;
         }
+    }
+  
+    // Test empty function again after insertion
+    if(b.empty()) {
+        cout << "Incorrect, the tree should be empty " << endl;
+        return -1;
     }
 
     /* Test size. */

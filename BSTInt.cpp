@@ -92,14 +92,25 @@ unsigned int BSTInt::size() const
  */
 int BSTInt::height() const
 {
-  BSTNodeInt* temp = root;
-  int h = 0;
-  while(temp){
-    h++;
-  }
-  return 0;
+  if(!root)
+    return -1;
+  return heightHelper(root);
 }
 
+int BSTInt::heightHelper(BSTNodeInt *n) const
+{ 
+  while(n)
+  {
+    int hleft = 1+heightHelper(n->left);
+    int hright = 1+heightHelper(n->right);
+    if(hleft > hright)
+      return hleft;
+    else
+      return hright;
+  }
+  return 0; 
+
+}
 
 /** Return true if the BST is empty, else false. 
  */
