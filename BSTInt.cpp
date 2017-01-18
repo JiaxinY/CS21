@@ -28,31 +28,27 @@ bool BSTInt::insert(int item)
     return true;
   }
 
+  BSTNodeInt* pre = NULL;
   BSTNodeInt* curr = root;
   
-  while (curr->left && curr->right) {
-    if (item < curr->data) {
+  while (curr)
+{
+    pre = curr;
+    if (item < curr->data)
       curr = curr->left;
-    }
-    else if (curr->data < item) {
+    else if (item > curr->data)
       curr = curr->right;
-    }
-    else {
+    else
       return false;
-    }
-  }
+}
 
   // Ready to insert
   BSTNodeInt* newNode = new BSTNodeInt(item);
-  if (item < curr->data) {
-    curr->left = newNode;
-    newNode->parent = curr;
-  }
-  else {
-    curr->right = newNode;
-    newNode->parent = curr;
-  }
-
+  newNode->parent = pre;
+  if(item < pre->data)
+    pre->left = newNode;
+  else
+    pre->right = newNode;
   ++isize;
   return true;
 
@@ -96,7 +92,11 @@ unsigned int BSTInt::size() const
  */
 int BSTInt::height() const
 {
-  // TODO
+  BSTNodeInt* temp = root;
+  int h = 0;
+  while(temp){
+    h++;
+  }
   return 0;
 }
 
@@ -105,7 +105,8 @@ int BSTInt::height() const
  */
 bool BSTInt::empty() const 
 {
-  // TODO
+  if(!root)
+    return true;
   return false;
 }
 
@@ -119,5 +120,10 @@ bool BSTInt::empty() const
  */
 void BSTInt::deleteAll(BSTNodeInt* n)
 {
-  // TODO
+  BSTNodeInt* temp = n;
+  if ( temp ){
+    deleteAll(n->left);
+    deleteAll(n->right);
+    delete temp;
+  }
 }

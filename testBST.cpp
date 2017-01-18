@@ -53,7 +53,7 @@ int main() {
     if( pr ) {
         cout << "Incorrect bool return value when inserting existed item 4"
              << endl;
-       // return -1;
+        return -1;
     }
 
     /* Test find return value. */
@@ -66,8 +66,8 @@ int main() {
     }
 
     // Test the items that are not in the tree
-    if(b.find(2)){
-        cout << "Incorrect return value when finding 2 " << endl;
+    if(b.find(99)){
+        cout << "Incorrect return value when finding 99 " << endl;
         return -1;
     }
 
