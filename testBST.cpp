@@ -26,7 +26,6 @@ int main() {
     v.push_back(1);
     v.push_back(100);
     v.push_back(-33);
-    v.push_back(2);
 
     /* Test for height */
 
@@ -55,6 +54,13 @@ int main() {
         return -1;
     }
 
+    // Test height
+    if (b.height() != 2) {
+        cout << "Incorrect height, should be 2, but got " << b.height()
+             << endl;
+        return -1;
+    }
+
     /* Test size. */
     cout << "Size is: " << b.size() << endl;
     if(b.size() != v.size()) {
@@ -66,6 +72,43 @@ int main() {
     bool pr = b.insert(4);
     if( pr ) {
         cout << "Incorrect bool return value when inserting existed item 4"
+             << endl;
+        return -1;
+    }
+
+    // Test inserting out of order
+    if (!b.insert(2)) {
+        cout << "Error inserting item 2" << endl;
+        return -1;
+    }
+
+    // Test height, should still be 2
+    if (b.height() != 2) {
+        cout << "Incorrect height, should be 2, but got " << b.height()
+             << endl;
+        return -1;
+    }
+
+    if (!b.insert(0)) {
+        cout << "Error inserting item 0" << endl;
+        return -1;
+    }
+
+    // Test height, should become 3
+    if (b.height() != 3) {
+        cout << "Incorrect height, should be 3, but got " << b.height()
+             << endl;
+        return -1;
+    }
+
+    if (!b.insert(-1)) {
+        cout << "Error inserting item -1" << endl;
+        return -1;
+    }
+
+    // Test height, should become 4
+    if (b.height() != 4) {
+        cout << "Incorrect height, should be 4, but got " << b.height()
              << endl;
         return -1;
     }

@@ -97,9 +97,11 @@ int BSTInt::height() const
   return heightHelper(root);
 }
 
+/** Helper for the height function
+ */
 int BSTInt::heightHelper(BSTNodeInt *n) const
-{ 
-  while(n)
+{
+  if(n && (n->left || n->right))
   {
     int hleft = 1+heightHelper(n->left);
     int hright = 1+heightHelper(n->right);
