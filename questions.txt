@@ -42,6 +42,11 @@ After adding those two cases in tester, I compile and run the tester again and
 the result shows the code has a bug in insert function, which does not return
 false if an item already existed in the tree.
 
+Q5:
+The insert method in BSTInt.h passes its argument by value while the insert
+method in BST.hpp passes its argument by reference.
+Why?
 
-
+Q6:
+ 
 
