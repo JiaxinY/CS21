@@ -45,8 +45,17 @@ false if an item already existed in the tree.
 Q5:
 The insert method in BSTInt.h passes its argument by value while the insert
 method in BST.hpp passes its argument by reference.
-Why?
+In BSTInt.h, the argument for insert method is Int type, the function does not
+want to modify the parameter and the value is easy to copy. So it passes 
+argument by value. But in BST.hpp, the argument is Data type, which is 
+expensive to copy, so it passes its argument by reference. 
 
 Q6:
- 
+sorted file produces taller trees.
+
+Q7:
+The height for sorted BST is n-1 and the height for random BST is O(logn)
+For sorted BST, every next input goes to next level of height. Therefore for 
+size of n BST, the height will be n-1. 
+Cite: Philippe Flajolet "Journal of Computer and System Science" 171 - 213 (1982) 
 

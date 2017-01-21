@@ -58,7 +58,7 @@ class BST {
 
 
         /** Return true if the BST is empty, else false.
-        */ // TODO
+        */ 
         bool empty() const;
 
         /** Return an iterator pointing to the first (smallest) item in the BST.
@@ -89,7 +89,7 @@ class BST {
 
         /** Helper for the height function
         */
-        int BST<Data>::heightHelper(BSTNode<Data> *n) const;
+        int heightHelper(BSTNode<Data> *n) const;
 
 };
 
@@ -195,6 +195,7 @@ int BST<Data>::height() const
 
 /** Helper for the height function
 */
+template <typename Data>
 int BST<Data>::heightHelper(BSTNode<Data> *n) const
 {
     if(n && (n->left || n->right))
@@ -256,13 +257,13 @@ BSTNode<Data>* BST<Data>::first(BSTNode<Data>* root)
 template <typename Data>
 void BST<Data>::deleteAll(BSTNode<Data>* n)
 {
-    BSTNode<Data>* temp = n;
-    if ( temp ){
+    if ( n ){
         deleteAll(n->left);
         deleteAll(n->right);
-        delete temp;
+        delete n;
 
     }
+}
 
 
 
